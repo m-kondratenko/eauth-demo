@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8"/>
+    <title>EAUTH DEMO</title>
+    {% block stylesheets %}
+        <link href="{{ asset('/css/style.css') }}" type="text/css" rel="stylesheet"/>
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+<h1>EAUTH DEMO</h1><br>
+<form method="post" id="auth">
+    <div class="text">Insert your login</div>
+    <input id="login" name="login" class="input" type="text">
+    <p></p>
+    <div class="text">Insert your password</div>
+    <input id="password" name="password" class="input" type="password"><br>
+    <p></p>
+    <button id="submit" class="button" type="submit">Send your credentials</button>
+    <br>
+    <div class="smalltext">There is no registration in DEMO app.</div>
+    <div class="smalltext">First you should insert your USERNAME and PASSWORD, then push SEND button.</div>
+    <div class="smalltext">Allowed chars: "0123456789abcdefghijklmnopqrstuvwxyz".</div>
+</form>
+{% block output %}{% endblock %}
+</body>
 </html>
