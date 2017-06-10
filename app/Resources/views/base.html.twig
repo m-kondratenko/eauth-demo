@@ -9,6 +9,10 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
+{% block javascripts %}
+    <script src="{{ asset('/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('/js/main.js') }}"></script>
+{% endblock %}
 <h1>EAUTH DEMO</h1><br>
 <form method="post" id="auth">
     <div class="text">Insert your login</div>
@@ -17,7 +21,7 @@
     <div class="text">Insert your password</div>
     <input id="password" name="password" class="input" type="password"><br>
     <p></p>
-    <button id="submit" class="button" type="submit">Send your credentials</button>
+    <button id="button" class="button" type="button" onclick="authenticate()">Send your credentials</button>
     <br>
     <div class="smalltext">There is no registration in DEMO app.</div>
     <div class="smalltext">First you should insert your USERNAME and PASSWORD, then push SEND button.</div>
