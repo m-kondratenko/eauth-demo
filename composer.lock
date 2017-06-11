@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "472a695f2a2f8da3cf186e283b2a641e",
+    "content-hash": "bb54007a88a256729795d354a1a461cb",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -3008,9 +3008,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "friendsofsymfony/oauth-server-bundle": 20,
-        "friendsofsymfony/rest-bundle": 20,
-        "friendsofsymfony/user-bundle": 20
+        "friendsofsymfony/rest-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

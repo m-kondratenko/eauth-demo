@@ -2,6 +2,9 @@ demo:
     resource: "@DemoBundle/Resources/config/routing.yml"
     prefix:   /
 
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+#app:
+#    resource: '@AppBundle/Controller/'
+#    type: annotation
+
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
