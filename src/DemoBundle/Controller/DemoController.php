@@ -9,6 +9,8 @@
 namespace DemoBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class DemoController extends FOSRestController
 {
@@ -16,6 +18,6 @@ class DemoController extends FOSRestController
     {
         $data = array("hello" => "world");
         $view = $this->view($data);
-        return $this->handleView($view);
+        return new Response(json_encode($data), 200);
     }
 }

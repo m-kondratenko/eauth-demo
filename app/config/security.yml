@@ -12,13 +12,14 @@ security:
         oauth_token:                                   # Everyone can access the access token URL.
             pattern: ^/oauth/v2/token
             security: false
+        show:
+            pattern: ^/show                            # All URLs are protected
+            fos_oauth: true                            # OAuth2 protected resource
+            stateless: true                            # Do no set session cookies
+            anonymous: false                           # Anonymous access is not allowed
         main:
             pattern: ^/                                # All URLs are protected
-            fos_oauth: true                            # OAuth2 protected resource
-            stateless: true                            # Do no set session cookies
-            anonymous: true                            # Anonymous access is not allowed
+            security: false
         ajax_auth:
             pattern: ^/auth                            # All URLs are protected
-            fos_oauth: true                            # OAuth2 protected resource
-            stateless: true                            # Do no set session cookies
-            anonymous: true                            # Anonymous access is not allowed
+            security: false

@@ -28,10 +28,20 @@
     <div class="smalltext">Allowed chars: "0123456789abcdefghijklmnopqrstuvwxyz".</div>
 </form>
 {% block output %}{% endblock %}
-<div id="access_token" class="smalltext"> </div>
-<div id="expires_in" class="smalltext"> </div>
-<div id="refresh_token" class="smalltext"> </div>
-<div id="scope" class="smalltext"> </div>
-<div id="token_type" class="smalltext"> </div>
+<br>
+<div id="after_auth" hidden>
+    <div id="token">
+        <div class="smalltext">access_token: </div><div id="access_token" class="smalltext"> </div>
+        <div class="smalltext">expires_in: </div><div id="expires_in" class="smalltext"> </div>
+        <div class="smalltext">refresh_token: </div><div id="refresh_token" class="smalltext"> </div>
+        <div class="smalltext">scope: </div><div id="scope" class="smalltext"> </div>
+        <div class="smalltext">token_type: </div><div id="token_type" class="smalltext"> </div>
+    </div>
+    <br>
+    <div id="showing">
+        <button id="button" class="button" type="button" onclick="showfirst()">Show First</button>
+        <button id="button" class="button" type="button" onclick="showfirst()">Show Second</button>
+    </div>
+</div>
 </body>
 </html>

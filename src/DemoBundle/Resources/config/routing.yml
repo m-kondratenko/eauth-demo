@@ -11,3 +11,7 @@ ajax_auth:
     defaults: { _controller: DemoBundle:Auth:auth }
     requirements:
           _method: POST
+
+show:
+    path:     /show
+    defaults: { _controller: DemoBundle:Auth:show }
