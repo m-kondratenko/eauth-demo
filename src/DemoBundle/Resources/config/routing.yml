@@ -2,10 +2,6 @@ demo_homepage:
     path:     /
     defaults: { _controller: DemoBundle:Main:index }
 
-api_demos:
-    type: rest
-    resource: DemoBundle\Controller\DemoController
-
 ajax_auth:
     path:     /auth
     defaults: { _controller: DemoBundle:Auth:auth }
@@ -14,4 +10,6 @@ ajax_auth:
 
 show:
     path:     /show
-    defaults: { _controller: DemoBundle:Auth:show }
+    defaults: { _controller: DemoBundle:Demo:show }
+    requirements:
+              _method: POST

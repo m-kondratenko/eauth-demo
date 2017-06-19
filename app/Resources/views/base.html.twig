@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>EAUTH DEMO</title>
+    <title>AUTH DEMO</title>
     {% block stylesheets %}
         <link href="{{ asset('/css/style.css') }}" type="text/css" rel="stylesheet"/>
     {% endblock %}
@@ -13,7 +13,8 @@
     <script src="{{ asset('/js/jquery.min.js') }}"></script>
     <script src="{{ asset('/js/main.js') }}"></script>
 {% endblock %}
-<h1>EAUTH DEMO</h1><br>
+<h1>AUTH DEMO</h1><br>
+{% block output %}{% endblock %}
 <form method="post" id="auth">
     <div class="text">Insert your login</div>
     <input id="login" name="login" class="input" type="text">
@@ -23,25 +24,28 @@
     <p></p>
     <button id="button" class="button" type="button" onclick="authenticate()">Send your credentials</button>
     <br>
-    <div class="smalltext">There is no registration in DEMO app.</div>
-    <div class="smalltext">First you should insert your USERNAME and PASSWORD, then push SEND button.</div>
-    <div class="smalltext">Allowed chars: "0123456789abcdefghijklmnopqrstuvwxyz".</div>
+    <div class="smalltext">There is no registration in DEMO app. Please use admin - test for test purposes.</div>
 </form>
-{% block output %}{% endblock %}
 <br>
 <div id="after_auth" hidden>
     <div id="token">
-        <div class="smalltext">access_token: </div><div id="access_token" class="smalltext"> </div>
-        <div class="smalltext">expires_in: </div><div id="expires_in" class="smalltext"> </div>
-        <div class="smalltext">refresh_token: </div><div id="refresh_token" class="smalltext"> </div>
-        <div class="smalltext">scope: </div><div id="scope" class="smalltext"> </div>
-        <div class="smalltext">token_type: </div><div id="token_type" class="smalltext"> </div>
+        <div class="smalltext"><b>access_token: </b></div><div id="access_token" class="smalltext"> </div>
+        <div class="smalltext"><b>expires_in: </b></div><div id="expires_in" class="smalltext"> </div>
+        <div class="smalltext"><b>refresh_token: </b></div><div id="refresh_token" class="smalltext"> </div>
+        <div class="smalltext"><b>scope: </b></div><div id="scope" class="smalltext"> </div>
+        <div class="smalltext"><b>token_type: </b></div><div id="token_type" class="smalltext"> </div>
     </div>
     <br>
     <div id="showing">
-        <button id="button" class="button" type="button" onclick="showfirst()">Show First</button>
-        <button id="button" class="button" type="button" onclick="showfirst()">Show Second</button>
+        <button id="button" class="button" type="button" onclick="show(mode=1)">Show First</button>
+        <div id="show_first" class="smalltext"> </div>
+        <br>
+        <button id="button" class="button" type="button" onclick="show(mode=2)">Show Second</button>
+        <div id="show_second" class="smalltext"> </div>
     </div>
+    <p>
+        <button id="button" class="button" type="button" onclick="logout()">Log out</button>
+    </p>
 </div>
 </body>
 </html>

@@ -29,9 +29,4 @@ class AuthController extends FOSRestController
         $data['client_secret'] = $client->getSecret();
         return new Response(json_encode($data), 200);
     }
-
-    public function showAction()
-    {
-        return $this->render('DemoBundle:Default:index.html.twig');
-    }
 }

@@ -1,18 +1,18 @@
+var access_token = '';
 function authenticate() {
     var login = $('#login').val();
     var password = $('#password').val();
     if (login !== ' ' && login !== '' && password !== ' ' && password !== '') {
         var data = {"login": login, "password": password};
         $.ajax({
-            url: '/app_dev.php/auth',
+            url: '/auth',
             type: "POST",
             cache: false,
             data : data,
             success: function(data) {
                 data = JSON.parse(data);
-                console.log(data);
                 $.ajax({
-                    url: '/app_dev.php/oauth/v2/token',
+                    url: '/oauth/v2/token',
                     type: "POST",
                     cache: false,
                     data : data,
@@ -20,36 +20,54 @@ function authenticate() {
                         for (var key in data) {
                             $('#' + key).html(data[key]);
                         }
+                        window.access_token = data['access_token'];
                         $('#auth').hide();
                         $('#after_auth').show();
                     },
                     error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        alert('Неверный логин или пароль');
+                        alert('Wrong login and password');
                     }
                 });
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
-                alert('Что-то пошло не так. Текст ошибки: ' +  errorThrown);
+                alert('Something went wrong. Error: ' +  errorThrown);
             }
         });
     } else {
-        alert('Введите логин и пароль');
+        alert('Insert login and password');
     }
 }
 
-function showfirst() {
-    var access_token = $('#access_token').html();
-    var data = {"access_token" : access_token};
-    console.log(data);
+function show(mode) {
+    var data = {"access_token" : window.access_token};
     $.ajax({
-        url: '/app_dev.php/show',
+        url: '/show',
         type: "POST",
         cache: false,
         data : data,
         success: function(data) {
+            if (mode === 2) {
+                console.log(mode);
+                console.log(data);
+                $('#show_second').html(data);
+            } else {
+                console.log(mode);
+                console.log(data);
+                $('#show_first').html(data);
+            }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-            alert('Ваш токен истек');
+            alert('Your token expired');
         }
     });
+}
+
+function logout() {
+    window.access_token = '';
+    $('#access_token').html('');
+    $('#refresh_token').html('');
+    $('#auth').show();
+    $('#after_auth').hide();
+    $('#login').val('');
+    $('#password').val('');
 }
